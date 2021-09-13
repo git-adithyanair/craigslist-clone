@@ -1,15 +1,77 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <title>Craigslist++</title>
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TEST</title>
-</head>
+  <body>
+    <nav>
+      <div class="container nav-wrapper">
+        <a href="/" class="brand-logo">Craigslist++</a>
+        <ul id="nav-mobile" class="right">
+          <li><a href="/">Home</a></li>
+        </ul>
+      </div>
+    </nav>
 
-<body>
-    <h2>YEET</h2>
-</body>
-
+    <div class="container">
+      <h1 style="text-align: center">
+        Search for stuff on Craigslist, except better.
+      </h1>
+      <div class="row" style="margin-top: 50px">
+        <div class="col s4">
+          <div class="center">
+            <i class="large material-icons" style="color: #71b94f">flash_on</i>
+            <p>Fast Craigslist web scraper!</p>
+            <p class="light center">
+              Scrape away right here with a beautiful GUI.
+            </p>
+          </div>
+        </div>
+        <div class="col s4">
+          <div class="center">
+            <i class="large material-icons" style="color: #e36eee">camera</i>
+            <p>Filter your searches!</p>
+            <p class="light center">High to low and low to high.</p>
+          </div>
+        </div>
+        <div class="col s4" style="margin-bottom: 50px">
+          <div class="center">
+            <i class="large material-icons" style="color: #6e81ee">laptop</i>
+            <p>Ooh, it looks so pretty!</p>
+            <p class="light center">Craigslist really does look like 💩.</p>
+          </div>
+        </div>
+        <h2>New search</h2>
+        <form action="{% url 'new_search' %}" method="post">
+          {% csrf_token %}
+          <input type="text" name="search" placeholder="search" />
+          <button
+            class="btn waves-effect waves-light"
+            type="submit"
+            name="action"
+          >
+            Submit
+            <i class="material-icons right">send</i>
+          </button>
+        </form>
+        {% block content %} {% endblock content %}
+      </div>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    </div>
+  </body>
 </html>
