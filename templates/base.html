@@ -59,7 +59,11 @@
         <h2>New search</h2>
         <form action="{% url 'new_search' %}" method="post">
           {% csrf_token %}
-          <input type="text" name="search" placeholder="search" />
+          <input
+            type="text"
+            name="search"
+            placeholder="Search for something..."
+          />
           <button
             class="btn waves-effect waves-light"
             type="submit"

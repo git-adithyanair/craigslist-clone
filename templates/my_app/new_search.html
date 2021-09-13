@@ -1,65 +1,23 @@
 {% extends "base.html" %} {% block content %}
-<h2 style="text-align: center">{{search}}</h2>
+<h3 style="text-align: center">{{search}}</h2>
 <div class="row">
+  {% for post in final_postings %}
   <div class="col s4">
     <div class="card">
       <div class="card-image">
         <img
-          src="https://www.gannett-cdn.com/presto/2021/07/20/PPHX/b8b6dcca-c42a-4956-9443-4fa1b59efbbb-Cajun_670565.jpg"
+          src="{{post.3}}"
         />
-        <span class="card-title">Card Title</span>
+        {% comment %} <span class="card-title"></span> {% endcomment %}
       </div>
       <div class="card-content">
-        <p>
-          I am a very simple card. I am good at containing small bits of
-          information. I am convenient because I require little markup to use
-          effectively.
-        </p>
+        <p>{{post.0}}</p>
       </div>
       <div class="card-action">
-        <a href="#">This is a link</a>
+        <a href="{{post.2}}">PRICE: {{post.1}} | CLICK TO VIEW</a>
       </div>
     </div>
   </div>
-  <div class="col s4">
-    <div class="card">
-      <div class="card-image">
-        <img
-          src="https://www.gannett-cdn.com/presto/2021/07/20/PPHX/b8b6dcca-c42a-4956-9443-4fa1b59efbbb-Cajun_670565.jpg"
-        />
-        <span class="card-title">Card Title</span>
-      </div>
-      <div class="card-content">
-        <p>
-          I am a very simple card. I am good at containing small bits of
-          information. I am convenient because I require little markup to use
-          effectively.
-        </p>
-      </div>
-      <div class="card-action">
-        <a href="#">This is a link</a>
-      </div>
-    </div>
-  </div>
-  <div class="col s4">
-    <div class="card">
-      <div class="card-image">
-        <img
-          src="https://www.gannett-cdn.com/presto/2021/07/20/PPHX/b8b6dcca-c42a-4956-9443-4fa1b59efbbb-Cajun_670565.jpg"
-        />
-        <span class="card-title">Card Title</span>
-      </div>
-      <div class="card-content">
-        <p>
-          I am a very simple card. I am good at containing small bits of
-          information. I am convenient because I require little markup to use
-          effectively.
-        </p>
-      </div>
-      <div class="card-action">
-        <a href="#">This is a link</a>
-      </div>
-    </div>
-  </div>
+  {% endfor %}
 </div>
 {% endblock content %}
